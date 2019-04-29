@@ -3,8 +3,20 @@
  */
 
 const server = require('./lib/server');
+const workers = require('./lib/workers');
 
-// Start https server
-server.initHttpsServer();
-// Start http server
-server.initHttpServer();
+var app = {};
+
+app.init = () => {
+    // Start https server
+    // server.initHttpsServer();
+    // Start http server
+    server.initHttpServer();
+
+    // Start the worker
+    // workers.init();
+}
+
+app.init();
+
+module.exports = app;
